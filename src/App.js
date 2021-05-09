@@ -73,7 +73,9 @@ function App() {
   }
 
   const getVaccineDetails = (districtCode) => {
-    const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtCode}&date=09-05-2021`;
+    const date = new Date();
+    const dateStr = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
+    const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=${districtCode}&date=${dateStr}`;
     fetch(url)
       .then(results => results.json())
       .then(data => {
